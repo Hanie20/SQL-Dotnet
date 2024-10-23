@@ -10,5 +10,9 @@ namespace MvcStudentPortal.Data
         }
 
         public DbSet<Student> Students { get; set; }
+        public async Task<List<Student>> GetStudentsAsync()
+        {
+            return await Students.FromSqlRaw("EXEC GetStudents").ToListAsync();
+        }
     }
 }
