@@ -36,10 +36,11 @@ namespace MvcStudentPortal.Controllers
             return RedirectToAction("List", "Students");
         }
 
-        [HttpGet]
+         [HttpGet]
         public async Task<IActionResult> List()
         {
-            var students = await dbContext.Students.ToListAsync();
+            var students = await dbcontext.Students.ToListAsync();
+            //var students = await dbcontext.GetStudentsAsync();
             return View(students);
         }
 
